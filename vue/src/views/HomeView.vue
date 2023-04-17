@@ -5,6 +5,7 @@
       :key="client.business_name"
       :id="index + 1"
       :complaints="client"
+      v-if="client.id < 150"
     />
   </div>
 </template>
