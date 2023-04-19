@@ -1,10 +1,14 @@
-<script setup>
-import ChartOne from '../components/ChartOne.vue'
+<script>
+import satisfactionChart from '../components/BarChart.vue'
+export default {
+  name: 'chart',
+  components: { satisfactionChart }
+}
 </script>
 
 <template>
   <div>
-    <ChartOne></ChartOne>
+    <satisfactionChart></satisfactionChart>
   </div>
 </template>
 

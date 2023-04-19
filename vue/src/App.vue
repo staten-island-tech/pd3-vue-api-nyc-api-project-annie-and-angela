@@ -1,7 +1,7 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
 //import HelloWorld from './components/HelloWorld.vue'
-import ChartsView from './views/ChartsView.vue'
+import BarChart from './views/ChartsView.vue'
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import ChartsView from './views/ChartsView.vue'
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/chart">Chart</RouterLink>
       </nav>
     </div>
   </header>

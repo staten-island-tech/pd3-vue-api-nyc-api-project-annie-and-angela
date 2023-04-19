@@ -1,9 +1,9 @@
 <template>
-  <div></div>
+  <Doughnut id="my-chart-id" :options="chartOptions" :data="chartData" />
 </template>
 
 <script>
-import { Bar } from 'vue-chartjs'
+import { Doughnut } from 'vue-chartjs'
 import {
   Chart as ChartJS,
   Title,
@@ -17,30 +17,18 @@ import {
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
-  name: 'BarChart',
-  comonents: { Bar },
-
+  name: 'satisfactionChart',
+  components: { Doughnut },
   data() {
     return {
       chartData: {
-        labels: ['January', 'February', 'March'],
+        labels: ['yes', 'no'],
         datasets: [{ data: [40, 20, 12] }]
       },
       chartOptions: {
-        reponsive: true
+        responsive: true
       }
-      /*  labels: [],
-      datasets: [
-        {
-          label: 'Complaint Types',
-          data: [],
-          backgroundColor: [],
-          hoverOffset: 4
-        }
-      ] */
     }
   }
 }
 </script>
-
-<style lang="scss" scoped></style>
