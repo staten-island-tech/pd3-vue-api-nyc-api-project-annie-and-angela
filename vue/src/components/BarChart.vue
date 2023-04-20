@@ -31,4 +31,8 @@ export default {
     }
   }
 }
+const props = {
+  complaints: Object,
+  id: number
+}
 </script>
