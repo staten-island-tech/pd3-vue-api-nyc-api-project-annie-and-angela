@@ -1,5 +1,7 @@
 <template>
-  <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+  <div class="container">
+    <Bar v-if="loaded" :data="chartData" />
+  </div>
 </template>
 
 <script>
@@ -19,8 +21,88 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 export default {
   name: 'BarChart',
   components: { Bar },
-  data() {
-    return {
+  data: () => ({
+    loaded: false,
+    chartData: {
+      labels: [
+        'AL',
+        'AK',
+        'AZ',
+        'AR',
+        'CA',
+        'CO',
+        'CT',
+        'DE',
+        'FL',
+        'GA',
+        'HI',
+        'ID',
+        'IL',
+        'IN',
+        'IA',
+        'KS',
+        'KY',
+        'LA',
+        'ME',
+        'MD',
+        'MA',
+        'MI',
+        'MN',
+        'MS',
+        'MO',
+        'MT',
+        'NE',
+        'NV',
+        'NH',
+        'NT',
+        'NM',
+        'NY',
+        'NC',
+        'ND',
+        'OK',
+        'OR',
+        'PA',
+        'RI',
+        'SC',
+        'SD',
+        'TN',
+        'TX',
+        'UT',
+        'VT',
+        'VA',
+        'WA',
+        'WV',
+        'WI',
+        'WY',
+        'N/A'
+      ],
+      datasets: [
+        {
+          data: []
+        }
+      ]
+    },
+    chartOptions: {
+      responsive: true
+    }
+  }),
+
+  import { ref, onMounted } from 'vue'
+const complaints = ref('')
+async function getData() {
+  let res = await fetch('https://data.cityofnewyork.us/resource/nre2-6m2s.json')
+  let data = await res.json()
+  complaints.value = await data
+  //console.log(JSON.stringify(data))
+}
+onMounted(() => {
+  getData()
+  //console.log(getData())
+})
+}
+</script>
+
+<!-- return {
       chartData: {
         labels: [
           'Alabama',
@@ -76,6 +158,8 @@ export default {
           'N/A'
         ],
         datasets: [{ data: [40, 20, 12] }]
+
+
       },
       chartOptions: {
         responsive: true
@@ -83,4 +167,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->
