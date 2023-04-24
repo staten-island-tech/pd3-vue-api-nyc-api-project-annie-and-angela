@@ -15,19 +15,12 @@ export default {
     return {
       chartData: {
         labels: ['yes', 'no'],
-        datasets: [{ backgroundColor: ['red', 'green'], data: [40, 20, 12] }]
+        datasets: [{ backgroundColor: ['red', 'green'], data: [40, 12] }]
       },
       chartOptions: {
         responsive: true
       }
     }
-  },
-  computed: {
-    filterYes() {}
   }
-}
-const props = {
-  complaints: Object,
-  id: number
 }
 </script>
