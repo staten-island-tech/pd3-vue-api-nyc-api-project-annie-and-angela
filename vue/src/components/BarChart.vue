@@ -13,14 +13,19 @@ export default {
   components: { Doughnut },
   data() {
     return {
+      yesArray: this.dataArray.filter((client) => client.satisfaction === 'yes'),
       chartData: {
         labels: ['yes', 'no'],
-        datasets: [{ backgroundColor: ['red', 'green'], data: [40, 12] }]
+        datasets: [{ backgroundColor: ['red', 'green'], data: [yesArray.length] }]
       },
       chartOptions: {
         responsive: true
       }
     }
+  },
+
+  props: {
+    dataArray: Array
   }
 }
 </script>
