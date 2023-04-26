@@ -1,5 +1,5 @@
 <template>
-  <Doughnut id="my-chart-id" :options="chartOptions" :data="chartData" />
+  <Doughnut id="my-chart-id" v-if="loaded" :options="chartOptions" :data="chartData" />
 </template>
 
 <script>
@@ -13,19 +13,29 @@ export default {
   components: { Doughnut },
   data() {
     return {
-      yesArray: this.dataArray.filter((client) => client.satisfaction === 'yes'),
-      chartData: {
-        labels: ['yes', 'no'],
-        datasets: [{ backgroundColor: ['red', 'green'], data: [yesArray.length] }]
-      },
-      chartOptions: {
-        responsive: true
-      }
+      chartData: null,
+      chartOptions: null,
+      loaded: false
     }
   },
 
-  props: {
-    dataArray: Array
+  mounted: function () {
+    async function satisfData() {
+      const wait = await fetch('https://data.cityofnewyork.us/resource/nre2-6m2s.json')
+      const data = await wait.json()
+      console.log(data)
+      dataArray = []
+    }
+    satisfData()
+    let x = ['3', '4']
+    this.chartData = {
+      labels: ['yes', 'no'],
+      datasets: [{ backgroundColor: ['red', 'green'], data: x }]
+    }
+    this.chartOptions = {
+      responsive: true
+    }
+    this.loaded = true
   }
 }
 </script>
