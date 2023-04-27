@@ -23,10 +23,14 @@ export default {
     async function satisfData() {
       const wait = await fetch('https://data.cityofnewyork.us/resource/nre2-6m2s.json')
       const data = await wait.json()
-      console.log(data)
-      dataArray = []
+      const dataArray = []
+      dataArray.push(data)
+      console.log(dataArray)
+      const nos = dataArray.filter((e) => e.satisfaction === 'No').length
+      console.log(nos)
     }
     satisfData()
+
     let x = ['3', '4']
     this.chartData = {
       labels: ['yes', 'no'],
