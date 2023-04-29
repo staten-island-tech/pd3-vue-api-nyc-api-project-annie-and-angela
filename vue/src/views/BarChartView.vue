@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 import BStateChart from '../components/BarChart.vue'
 export default {
   name: 'chart',
@@ -12,5 +12,5 @@ export default {
   </div>
 </template>
 
-<style scoped></style> -->
+<style scoped></style>
 <!-- NEED THIS -->
