@@ -19,22 +19,20 @@ export default {
     }
   },
 
-  mounted: function () {
-    async function satisfData() {
-      const wait = await fetch('https://data.cityofnewyork.us/resource/nre2-6m2s.json')
-      const data = await wait.json()
-      const dataArray = []
-      dataArray.push(data)
-      console.log(dataArray)
-      const nos = dataArray.filter((e) => e.satisfaction === 'No').length
-      console.log(nos)
-    }
-    satisfData()
-
-    let x = ['3', '4']
+  async mounted() {
+    const wait = await fetch('https://data.cityofnewyork.us/resource/nre2-6m2s.json')
+    const data = await wait.json()
+    const nos = data.filter((e) => e.satisfaction === 'No').length
+    const yes = data.filter((e) => e.satisfaction === 'Yes').length
+    let x = [nos, yes]
     this.chartData = {
       labels: ['yes', 'no'],
-      datasets: [{ backgroundColor: ['red', 'green'], data: x }]
+      datasets: [
+        {
+          backgroundColor: ['#ff94c1', '#99e8b7'],
+          data: x
+        }
+      ]
     }
     this.chartOptions = {
       responsive: true
