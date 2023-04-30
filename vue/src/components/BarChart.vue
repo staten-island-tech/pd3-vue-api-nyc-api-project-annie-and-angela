@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
-    <Bar id="my-chart-id" v-if="loaded" :data="chartData" :options="chartOptions" />
-  </div>
+  <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
 </template>
 
 <script>
@@ -23,15 +21,7 @@ export default {
   components: { Bar },
   data() {
     return {
-      chartData: null,
-      chartOptions: null,
-      loaded: false
-    }
-  },
-
-  Mounted: function () {
-    async function DATA() {
-      this.chartData = {
+      chartData: {
         labels: [
           'AL',
           'AK',
@@ -88,25 +78,20 @@ export default {
           {
             label: 'COMPLAINT CASES',
             backgroundColor: ['#E6F7FF'],
-            data: this.business_state
+            data: [20, 20, 20]
           }
         ]
-      }
-      this.chartOptions = {
+      },
+      chartOptions: {
         responsive: true
       }
-      this.loaded = true
     }
-    DATA()
   }
 }
-/* onMounted(() => {
-  getData()
-  //console.log(getData())
-}), */
 </script>
 
 <!-- <template>
+  <h1>Bar Chart</h1>
   <div class="container">
     <Bar id="my-chart-id" v-if="loaded" :data="chartData" :options="chartOptions" />
   </div>
@@ -139,17 +124,11 @@ export default {
 
   Mounted: function () {
     async function DATA() {
-      const wait = await fetch('https://data.cityofnewyork.us/resource/nre2-6m2s.json')
-      const data = await wait.json()
-      const dataArray = []
-      dataArray.push(data)
+      // const data = await wait.json()
+      const dataArray = ['HELLO']
       console.log(dataArray)
-      const text = dataArray.filter((e) => e.satisfaction === 'No').length
-      console.log(text)
     }
-    DATA()
 
-    let x = ['3', '5', '6']
     this.chartData = {
       labels: [
         'AL',
@@ -207,7 +186,7 @@ export default {
         {
           label: 'COMPLAINT CASES',
           backgroundColor: ['#E6F7FF'],
-          data: x
+          data: this.business_state
         }
       ]
     }
@@ -217,5 +196,9 @@ export default {
     this.loaded = true
   }
 }
+ onMounted(() => {
+  DATA()
+  //console.log(getData())
+}),
 </script>
  -->

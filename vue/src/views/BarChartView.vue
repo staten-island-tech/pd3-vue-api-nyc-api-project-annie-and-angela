@@ -1,16 +1,16 @@
+<!-- NEED THIS FOR SWITCHING VIEWS -->
 <script>
-import BStateChart from '../components/BarChart.vue'
+/* import BStateChart from '../components/BarChart.vue'
 export default {
   name: 'chart',
   components: { BStateChart }
-}
+} */
 </script>
 
 <template>
-  <div>
+  <!-- <div>
     <BStateChart></BStateChart>
-  </div>
+  </div> -->
 </template>
 
 <style scoped></style>
-<!-- NEED THIS -->
