@@ -3,7 +3,8 @@
 
   <div class="SearchBar">
     <label for="search">Search By Business Name:</label>
-    <input type="search" id="search" data-search />
+    <input v-model="userInput" type="search" id="search" data-search placeholder="Type here" />
+    <p>{{ userInput }}</p>
   </div>
 
   <div class="container">
@@ -25,17 +26,30 @@ async function getData() {
   let res = await fetch('https://data.cityofnewyork.us/resource/nre2-6m2s.json')
   let data = await res.json()
   complaints.value = await data
-  //console.log(JSON.stringify(data))
 }
 onMounted(() => {
   getData()
   //console.log(getData())
 })
+</script>
 
-/* searchInput.addEventListener('input', (e) => {
+<script>
+export default {
+  data() {
+    return {
+      userInput: ''
+      //filter the data's Buisness name with the user input
+      //if nothing shows up, then show error
+      /* const: userInput = userInput.value,
+data.filter((e) => e.business_name === userInput) */
+
+      /* searchInput.addEventListener('input', (e) => {
   const value = e.target.value
   console.log(value)
 }) */
+    }
+  }
+}
 </script>
 
 <style scoped>
