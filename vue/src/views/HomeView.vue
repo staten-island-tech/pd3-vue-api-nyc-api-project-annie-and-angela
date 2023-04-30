@@ -1,5 +1,11 @@
 <template>
   <h1 class="Title">Consumer Services Mediated Complaints</h1>
+
+  <div class="SearchBar">
+    <label for="search">Search By Business Name:</label>
+    <input type="search" id="search" data-search />
+  </div>
+
   <div class="container">
     <ComplaintCard
       v-for="(client, index) in complaints"
@@ -25,6 +31,11 @@ onMounted(() => {
   getData()
   //console.log(getData())
 })
+
+/* searchInput.addEventListener('input', (e) => {
+  const value = e.target.value
+  console.log(value)
+}) */
 </script>
 
 <style scoped>
@@ -40,5 +51,13 @@ onMounted(() => {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+}
+.SearchBar {
+  text-align: center;
+  font-size: 30px;
+}
+
+#search {
+  font-size: 30px;
 }
 </style>
