@@ -33,86 +33,38 @@ export default {
     const wait = await fetch('https://data.cityofnewyork.us/resource/nre2-6m2s.json')
     const data = await wait.json()
 
-    const StateS = []
+    const states = data.map((e) => e.business_state)
+    console.log(states)
+    const stateSort = states.sort()
+    let individual = [...new Set(states)]
+    let label = individual.sort()
+    console.log(label)
+    const stateData = []
 
-    const nos = data.filter((e) => e.business_state === 'NY').length
+    let eachCount = []
+    let state, noOfCount
 
-    data
-      .filter((state) => {
-        state === data.business_state
-      })
-      .forEach((state) => {
-        StateS.push(state)
-      })
-    console.log(StateS)
-    //783 complaints in total with state listed?
+    for (let i = 0; i < stateSort.length; i++) {
+      state = stateSort[i]
+      //state = NY
+      noOfCount = eachCount[state]
+      //noOfCount=noOfCountsOfEachCharacter[NY]
+      eachCount[state] = noOfCount ? noOfCount + 1 : 1
+      //if noOfCountsOfEachCharacter[NY] = noOfCount then noOfCount + 1, else 1
+    }
 
-    /* let x = this.typeData.map((el) => {
-      return el.amt
-    })
-    console.log(x) */
-    /* let y = this.typeata.map((el) => {
-      return el.type
-    }) */
+    for (state in eachCount) {
+      stateData.push(eachCount[state])
+    }
 
-    let x = [nos]
+    console.log(stateData)
     ;(this.chartData = {
-      labels: [
-        'AL',
-        'AK',
-        'AZ',
-        'AR',
-        'CA',
-        'CO',
-        'CT',
-        'DE',
-        'FL',
-        'GA',
-        'HI',
-        'ID',
-        'IL',
-        'IN',
-        'IA',
-        'KS',
-        'KY',
-        'LA',
-        'ME',
-        'MD',
-        'MA',
-        'MI',
-        'MN',
-        'MS',
-        'MO',
-        'MT',
-        'NE',
-        'NV',
-        'NH',
-        'NT',
-        'NM',
-        'NY',
-        'NC',
-        'ND',
-        'OK',
-        'OR',
-        'PA',
-        'RI',
-        'SC',
-        'SD',
-        'TN',
-        'TX',
-        'UT',
-        'VT',
-        'VA',
-        'WA',
-        'WV',
-        'WI',
-        'WY'
-      ],
+      labels: label,
       datasets: [
         {
-          label: 'COMPLAINT CASES',
+          label: 'Complaints in each state',
           backgroundColor: ['#E6F7FF'],
-          data: x
+          data: stateData
         }
       ]
     }),
