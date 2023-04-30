@@ -29,14 +29,33 @@ export default {
     }
   },
 
-  mounted: function () {
-    /* async function DATA() {
-      const dataArray = ['HELLO']
-      console.log(dataArray)
-    }
-    DATA() */
+  async mounted() {
+    const wait = await fetch('https://data.cityofnewyork.us/resource/nre2-6m2s.json')
+    const data = await wait.json()
 
-    let x = ['3', '4', '5']
+    const StateS = []
+
+    const nos = data.filter((e) => e.business_state === 'NY').length
+
+    data
+      .filter((state) => {
+        state === data.business_state
+      })
+      .forEach((state) => {
+        StateS.push(state)
+      })
+    console.log(StateS)
+    //783 complaints in total with state listed?
+
+    /* let x = this.typeData.map((el) => {
+      return el.amt
+    })
+    console.log(x) */
+    /* let y = this.typeata.map((el) => {
+      return el.type
+    }) */
+
+    let x = [nos]
     ;(this.chartData = {
       labels: [
         'AL',
@@ -87,8 +106,7 @@ export default {
         'WA',
         'WV',
         'WI',
-        'WY',
-        'N/A'
+        'WY'
       ],
       datasets: [
         {
