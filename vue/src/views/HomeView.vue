@@ -37,24 +37,13 @@ onMounted(() => {
 export default {
   name: 'home',
   components: {},
+
   data: () => ({
     userInput: '',
 
-    const: data = await Response.json(),
-    const: dataArray = [],
-    dataArray.push(data)
-
-
-    //console.log(getData())
+    data.filter((e) => e.complaint_type.toLowerCase().includes(userInput.toLowerCase())),
   }),
-  //filter the data's Buisness name with the user input
-  //if nothing shows up, then show error
-  /* if: (userInput = data.filter((e) => e.business_name === userInput)) */
 
-  /* searchInput.addEventListener('input', (e) => {
-  const value = e.target.value
-  console.log(value)
-}) */
   computed: {
     complaints() {
       if (this.userInput.trim().length > 0) {
@@ -92,3 +81,7 @@ export default {
   font-size: 30px;
 }
 </style>
+
+//filter the data's Buisness name with the user input //if nothing shows up, then show error /* if:
+(userInput = data.filter((e) => e.business_name === userInput)) */ /*
+searchInput.addEventListener('input', (e) => { const value = e.target.value console.log(value) }) */
