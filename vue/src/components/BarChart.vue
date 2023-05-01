@@ -90,8 +90,8 @@ export default {
 
 <style scoped>
 div {
-  width: 700px;
-  height: 700px;
+  width: 85%;
+  height: 85%;
   margin: auto;
 }
 </style>
