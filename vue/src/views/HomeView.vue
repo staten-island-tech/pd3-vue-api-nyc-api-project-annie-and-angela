@@ -9,16 +9,16 @@
 
   <div class="container">
     <ComplaintCard
-      v-for="(client, index) in complaints"
-      :key="client.business_name"
+      v-for="(user, index) in complaints"
+      :key="user.business_name"
       :id="index + 1"
-      :complaints="client"
+      :complaints="user"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import ComplaintCard from '../components/ComplaintCard.vue'
 
 const complaints = ref('')
@@ -29,24 +29,41 @@ async function getData() {
 }
 onMounted(() => {
   getData()
-  //console.log(getData())
+  console.log(getData())
 })
 </script>
 
 <script>
 export default {
-  data() {
-    return {
-      userInput: ''
-      //filter the data's Buisness name with the user input
-      //if nothing shows up, then show error
-      /* const: userInput = userInput.value,
-data.filter((e) => e.business_name === userInput) */
+  name: 'home',
+  components: {},
+  data: () => ({
+    userInput: '',
 
-      /* searchInput.addEventListener('input', (e) => {
+    const: data = await Response.json(),
+    const: dataArray = [],
+    dataArray.push(data)
+
+
+    //console.log(getData())
+  }),
+  //filter the data's Buisness name with the user input
+  //if nothing shows up, then show error
+  /* if: (userInput = data.filter((e) => e.business_name === userInput)) */
+
+  /* searchInput.addEventListener('input', (e) => {
   const value = e.target.value
   console.log(value)
 }) */
+  computed: {
+    complaints() {
+      if (this.userInput.trim().length > 0) {
+        return []
+        /* return this.data.filter((user) =>
+          user.business_name.toLowerCase().includes(this.userInput.trim())
+        ) */
+      }
+      return this.dataArray
     }
   }
 }
