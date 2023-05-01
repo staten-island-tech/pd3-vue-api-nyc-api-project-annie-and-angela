@@ -24,9 +24,9 @@ export default {
   computed: {
     myStyles() {
       return {
-        height: `${10000}px`,
+        height: `${1000}px`,
         position: 'relative',
-        width: `${10000}px`,
+        width: `${1000}px`,
         position: 'relative'
       }
     }

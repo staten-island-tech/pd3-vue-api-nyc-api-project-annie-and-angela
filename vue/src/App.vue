@@ -3,9 +3,6 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <BarChart />
-  <PieChart />
-
   <header>
     <div class="wrapper">
       <nav>
