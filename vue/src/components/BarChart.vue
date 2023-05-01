@@ -1,5 +1,7 @@
 <template>
-  <Bar v-if="loaded" id="my-chart-id" :options="chartOptions" :data="chartData" />
+  <div>
+    <Bar v-if="loaded" id="my-chart-id" :options="chartOptions" :data="chartData" />
+  </div>
 </template>
 
 <script>
@@ -85,3 +87,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+div {
+  width: 700px;
+  height: 700px;
+  margin: auto;
+}
+</style>

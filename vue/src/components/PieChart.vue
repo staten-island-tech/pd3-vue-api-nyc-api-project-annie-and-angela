@@ -1,5 +1,7 @@
 <template>
-  <Doughnut id="my-chart-id" v-if="loaded" :options="chartOptions" :data="chartData" />
+  <div>
+    <Doughnut id="my-chart-id" v-if="loaded" :options="chartOptions" :data="chartData" />
+  </div>
 </template>
 
 <script>
@@ -41,3 +43,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+div {
+  width: 700px;
+  height: 700px;
+  margin: auto;
+}
+</style>
