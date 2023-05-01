@@ -21,6 +21,16 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 export default {
   name: 'BarChart',
   components: { Bar },
+  computed: {
+    myStyles() {
+      return {
+        height: `${10000}px`,
+        position: 'relative',
+        width: `${10000}px`,
+        position: 'relative'
+      }
+    }
+  },
   data() {
     return {
       loaded: false,
