@@ -1,45 +1,36 @@
-<script>
-import { RouterLink, RouterView } from 'vue-router'
-//import HelloWorld from './components/HelloWorld.vue'
-import BarChart from './views/ChartsView.vue'
-</script>
-
 <template>
   <BarChart />
+  <PieChart />
 
-  <!-- <BarChart></BarChart>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/chart">Chart</RouterLink>
+        <RouterLink to="/chart1">BarChart</RouterLink>
+        <RouterLink to="/chart2">PieChart</RouterLink>
       </nav>
     </div>
   </header>
 
-  <RouterView /> -->
+  <RouterView />
 </template>
 
 <script>
+import { RouterLink, RouterView } from 'vue-router'
+//import HelloWorld from './components/HelloWorld.vue'
+import PieChart from './views/ChartsView.vue'
 import BarChart from './components/BarChart.vue'
 
 export default {
   name: 'App',
-  components: { BarChart }
+  components: {}
 }
 </script>
 
 <style scoped>
-/* header {
+header {
   line-height: 1.5;
   max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
 }
 
 nav {
@@ -92,5 +83,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-} */
+}
 </style>

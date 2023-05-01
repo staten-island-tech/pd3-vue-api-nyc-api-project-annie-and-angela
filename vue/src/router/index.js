@@ -10,10 +10,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/chart',
-      name: 'chart',
-      component: () => import('../views/ChartsView.vue'),
+      path: '/chart1',
+      name: 'Barchart',
       component: () => import('../views/BarChartView.vue')
+    },
+    {
+      path: '/chart2',
+      name: 'Piechart',
+      component: () => import('../views/ChartsView.vue')
     }
     /*   {
       path: '/ComplaintInfo/:id',
