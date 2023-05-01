@@ -12,7 +12,8 @@ const router = createRouter({
     {
       path: '/chart',
       name: 'chart',
-      component: () => import('../views/ChartsView.vue')
+      component: () => import('../views/ChartsView.vue'),
+      component: () => import('../views/BarChartView.vue')
     }
     /*   {
       path: '/ComplaintInfo/:id',
