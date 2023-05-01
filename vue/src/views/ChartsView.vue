@@ -1,5 +1,5 @@
 <script>
-import satisfactionChart from '../components/BarChart.vue'
+import satisfactionChart from '../components/PieChart.vue'
 export default {
   name: 'chart',
   components: { satisfactionChart }
