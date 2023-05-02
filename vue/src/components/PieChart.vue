@@ -1,4 +1,5 @@
 <template>
+  <h1>Complaint Resolution</h1>
   <div>
     <Doughnut id="my-chart-id" v-if="loaded" :options="chartOptions" :data="chartData" />
   </div>
@@ -28,7 +29,7 @@ export default {
     const yes = data.filter((e) => e.satisfaction === 'Yes').length
     let x = [nos, yes]
     this.chartData = {
-      labels: ['yes', 'no'],
+      labels: ['satisfed', 'unsatisfied'],
       datasets: [
         {
           backgroundColor: ['#ff94c1', '#99e8b7'],
@@ -49,5 +50,10 @@ div {
   width: 700px;
   height: 700px;
   margin: auto;
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 30px;
 }
 </style>
