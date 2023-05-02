@@ -1,7 +1,5 @@
 <template>
   <h1 class="Title">Consumer Services Mediated Complaints</h1>
-  <input v-model="UserInput" placeholder="Type Here" type="text" />
-  <p>{{ UserInput }}</p>
   <div class="container">
     <ComplaintCard
       v-for="(client, index) in complaints"
@@ -11,16 +9,6 @@
     />
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      UserInput: ''
-    }
-  }
-}
-</script>
 
 <script setup>
 import { ref, onMounted } from 'vue'
